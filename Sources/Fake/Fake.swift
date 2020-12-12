@@ -1,6 +1,6 @@
-struct Fake {
-    struct Name {
-        enum First: String, CaseIterable {
+public struct Fake {
+    public struct Name {
+        public enum First: String, CaseIterable {
             // Mark: Female
             case Olivia
             case Emma
@@ -106,7 +106,7 @@ struct Fake {
             case Hudson
         }
         
-        enum Last: String, CaseIterable {
+        public enum Last: String, CaseIterable {
             case Smith
             case Brown
             case Wilson
@@ -318,23 +318,23 @@ struct Fake {
             case Robb
         }
         
-        struct Random {
-            static var first: String {
+        public struct Random {
+            public static var first: String {
                 (First.allCases.randomElement() ?? .Olivia).rawValue
             }
             
-            static var last: String {
+            public static var last: String {
                 (Last.allCases.randomElement() ?? .Smith).rawValue
             }
             
-            static var full: String {
+            public static var full: String {
                 "\(first) \(last)"
             }
         }
     }
 
-    struct Word {
-        enum Vowels: String, CaseIterable {
+    public struct Word {
+        public enum Vowels: String, CaseIterable {
             case A
             case E
             case I
@@ -342,7 +342,7 @@ struct Fake {
             case U
         }
         
-        enum Consonants: String, CaseIterable {
+        public enum Consonants: String, CaseIterable {
             case B
             case C
             case D
@@ -367,8 +367,8 @@ struct Fake {
         }
         
         // ACK: https://en.wikipedia.org/wiki/Dolch_word_list
-        struct Dolch {
-            enum NonNouns: String, CaseIterable {
+        public struct Dolch {
+            public enum NonNouns: String, CaseIterable {
                 case a
                 case and
                 case away
@@ -591,7 +591,7 @@ struct Fake {
                 case warm
             }
             
-            enum Nouns: String, CaseIterable {
+            public enum Nouns: String, CaseIterable {
                 case apple
                 case baby
                 case back
@@ -690,30 +690,30 @@ struct Fake {
             }
         }
         
-        struct Random {
-            static var vowel: String {
+        public struct Random {
+            public static var vowel: String {
                 (Vowels.allCases.randomElement() ?? .A).rawValue
             }
             
-            static var consonant: String {
+            public static var consonant: String {
                 (Consonants.allCases.randomElement() ?? .B).rawValue
             }
             
-            static var nonNoun: String {
+            public static var nonNoun: String {
                 (Dolch.NonNouns.allCases.randomElement() ?? .a).rawValue
             }
             
-            static var noun: String {
+            public static var noun: String {
                 (Dolch.Nouns.allCases.randomElement() ?? .apple).rawValue
             }
             
-            static var word: String {
+            public static var word: String {
                 let randomNumber = Int.random(in: 1 ... 100)
                 let isNoun = (1 ... 37) ~= randomNumber
                 return isNoun ? noun : nonNoun
             }
             
-            static func word(letters: Int) -> String {
+            public static func word(letters: Int) -> String {
                 var randomWord = ""
                 
                 for index in (0 ..< letters) {
@@ -728,7 +728,7 @@ struct Fake {
                 return randomWord
             }
             
-            static func sentence(words: Int) -> String {
+            public static func sentence(words: Int) -> String {
                 var randomWords = [String]()
                 
                 for index in (0 ..< words) {
